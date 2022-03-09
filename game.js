@@ -87,7 +87,7 @@ function checkCount() {
 
   if (askedCount > totalQuestions) {
     localStorage.setItem("mostRecentScore", score);
-    return window.location.assign("/end.html");
+    return window.location.assign("end.html");
   }
 }
 
