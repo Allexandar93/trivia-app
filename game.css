@@ -1,0 +1,114 @@
+body {
+  color: #fff;
+}
+
+.gameContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.choice-container {
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  border-radius: 4px;
+  background: #3e497a;
+  font-size: 3rem;
+  max-width: 80rem;
+  min-width: 60rem;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  color: #21325e;
+  background: #f1d00a;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(241, 208, 10, 0.5);
+  transform: scale(1.02);
+  transform: transform 100ms;
+}
+
+.choice-prefix {
+  padding: 2rem 2.5rem;
+  color: #fff;
+}
+
+.choice-text {
+  padding: 2rem;
+  width: 100%;
+}
+
+.correct {
+  background: green;
+}
+.correct:hover {
+  background: rgb(0, 128, 0);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 128, 0, 0.5);
+}
+
+.incorrect {
+  background: red;
+}
+.incorrect:hover {
+  background: rgb(255, 0, 0);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 0, 0, 0.5);
+}
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hudProgress {
+  position: fixed;
+  top: 20px;
+  left: 5%;
+}
+
+.hudScore {
+  position: fixed;
+  top: 20px;
+  right: 5%;
+}
+
+.hud-prefix {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hud-main-text {
+  text-align: center;
+}
+
+#progressBar {
+  width: 20rem;
+  height: 3rem;
+  border: 0.2rem solid green;
+  border-radius: 50px;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+#progressBarFull {
+  height: 100%;
+  background: green;
+  width: 0%;
+}
+
+#question {
+  font-size: clamp(4rem, 4vw, 6rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .choice-container {
+    min-width: 30rem;
+  }
+}
