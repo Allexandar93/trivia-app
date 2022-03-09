@@ -3,6 +3,7 @@ const options = document.querySelector(".options");
 const progressText = document.querySelector("#progressText");
 const progressBarFull = document.querySelector("#progressBarFull");
 const scoreText = document.querySelector("#score");
+const choiceContainer = document.querySelector(".choice-container");
 
 let correctAnswer = "";
 let correctScore = 0;
@@ -23,10 +24,16 @@ async function loadQuestion() {
     "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
   const result = await fetch(`${APIUrl}`);
   const data = await result.json();
+  askedCount++;
 
   //   console.log(data);
   showQuestion(data.results[0]);
   checkCount();
+  if (choiceContainer.classList.contains("correct")) {
+    choiceContainer.classList.remove("correct");
+  } else if (choiceContainer.classList.contains("incorrect")) {
+    choiceContainer.classList.remove("incorrect");
+  }
 }
 
 function showQuestion(data) {
@@ -48,6 +55,7 @@ function showQuestion(data) {
 </div>`
     )
     .join("")}`;
+
   selectOption();
 }
 
@@ -67,7 +75,6 @@ function selectOption() {
       selectedChoice.parentElement.classList.add(classToApply);
 
       setTimeout(() => {
-        selectedChoice.parentElement.classList.remove(classToApply);
         loadQuestion();
       }, 1000);
     });
@@ -75,7 +82,6 @@ function selectOption() {
 }
 
 function checkCount() {
-  askedCount++;
   progressText.textContent = `Question ${askedCount} of ${totalQuestions}`;
   progressBarFull.style.width = `${(askedCount / totalQuestions) * 100}%`;
 
